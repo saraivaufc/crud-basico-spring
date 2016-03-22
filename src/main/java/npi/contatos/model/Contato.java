@@ -47,4 +47,9 @@ public class Contato {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return this.getId() + " - " + this.getNome() + " - " + this.getEmail() + " - " + this.getTelefone(); 
+	}
+	
 }

@@ -32,7 +32,8 @@ public class ContatoController {
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public String adicionarForm(Model model) {
 		model.addAttribute("contato", new Contato());
-		return "adicionar";
+		model.addAttribute("acao", "adicionar");
+		return "formulario";
 	}
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
@@ -41,10 +42,27 @@ public class ContatoController {
 		return "redirect:/listar";
 	}
 	
+	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
+	public String editarForm(Model model, @PathVariable("id") Integer id) {
+		Contato contato = contatoService.findId(id);
+		model.addAttribute("contato", contato);
+		model.addAttribute("acao", "editar");
+		return "formulario";
+	}
+	
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editar(@ModelAttribute("contato") Contato contato) {
+		contatoService.atualizar(contato);
+		return "redirect:/listar";
+	}
+	
+	
 	@RequestMapping(value = "/remover/{id}", method = RequestMethod.GET)
 	public String remover(@PathVariable("id") Integer id) {
 		contatoService.remover(id);
 		return "redirect:/listar";
 	}
+	
+	
 
 }

@@ -8,8 +8,12 @@ public interface ContatoService {
 	
 	List<Contato> findAll();
 	
+	Contato findId(Integer id);
+	
 	void salvar(Contato contato);
 	
 	void remover(Integer id);
 
+	void atualizar(Contato contato);
+	
 }

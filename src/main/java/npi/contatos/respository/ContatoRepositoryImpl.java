@@ -45,4 +45,10 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 		
 	}
 
+	@Override
+	public void atualizar(Contato contato) {
+		em.merge(contato);
+		System.out.println("Atualizar: " + contato.toString());
+	}
+
 }

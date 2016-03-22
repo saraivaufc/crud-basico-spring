@@ -12,7 +12,8 @@
 		<label>Nome: ${contato.nome }</label> | 
 		<label>Email: ${contato.email }</label> | 
 		<label>Telefone: ${contato.telefone }</label>
-		<a href="/contatos/remover/${contato.id }">remover</a><br>
+		<a href="/contatos/remover/${contato.id }">remover</a>
+		<a href="/contatos/editar/${contato.id }">editar</a><br>
 	</c:forEach>
 	<a href="/contatos/adicionar">Adicionar</a>
 </body>

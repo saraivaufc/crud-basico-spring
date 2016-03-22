@@ -13,5 +13,6 @@ public interface ContatoRepository {
 	Contato findById(Integer id);
 	
 	void remover(Contato contato);
-
+	
+	void atualizar(Contato contato);
 }
