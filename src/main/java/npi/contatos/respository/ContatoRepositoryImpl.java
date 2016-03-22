@@ -46,9 +46,18 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 	}
 
 	@Override
+	@Transactional
 	public void atualizar(Contato contato) {
 		em.merge(contato);
-		System.out.println("Atualizar: " + contato.toString());
+	}
+
+	@Override
+	public Contato buscar(String nome) {
+		Query query = em.createQuery("from Contato where nome = :nome");
+		query.setParameter("nome", nome);
+		query.setMaxResults(1);
+		Contato contato= (Contato) query.getSingleResult();
+		return contato;
 	}
 
 }

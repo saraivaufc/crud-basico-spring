@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContatoController {
@@ -28,6 +29,14 @@ public class ContatoController {
 		model.addAttribute("contatos", contatoService.findAll());
 		return "listar";
 	}
+	
+	@RequestMapping(value = "/detalhes/{id}", method = RequestMethod.GET)
+	public String detalhes(Model model, @PathVariable("id") Integer id) {
+		Contato contato = contatoService.findId(id);
+		model.addAttribute("contato", contato);
+		return "detalhes";
+	}
+	
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public String adicionarForm(Model model) {
@@ -61,6 +70,14 @@ public class ContatoController {
 	public String remover(@PathVariable("id") Integer id) {
 		contatoService.remover(id);
 		return "redirect:/listar";
+	}
+	
+	
+	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
+	public String buscar(Model model,@RequestParam("nome") String nome) {
+		Contato contato = contatoService.buscar(nome);
+		model.addAttribute("contato", contato);
+		return "detalhes";
 	}
 	
 	

@@ -12,6 +12,8 @@ public interface ContatoRepository {
 	
 	Contato findById(Integer id);
 	
+	Contato buscar(String nome);
+	
 	void remover(Contato contato);
 	
 	void atualizar(Contato contato);

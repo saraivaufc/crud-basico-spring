@@ -42,4 +42,10 @@ public class ContatoServiceImpl implements ContatoService {
 		return contato;
 	}
 
+	@Override
+	public Contato buscar(String nome) {
+		Contato contato = contatoRepository.buscar(nome);
+		return contato;
+	}
+
 }
