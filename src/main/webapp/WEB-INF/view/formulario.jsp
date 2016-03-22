@@ -7,8 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Listar Contatos</title>
+<jsp:include page="base/header-estrutura.jsp" />
 </head>
 <body>
+<jsp:include page="base/header.jsp" />
 	<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">
 	        Novo Contato
@@ -41,4 +43,5 @@
 	</c:choose>
 	</form:form>
 </body>
+<jsp:include page="base/footer.jsp" />
 </html>

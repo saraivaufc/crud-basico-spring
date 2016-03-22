@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<jsp:include page="base/header-estrutura.jsp" />
 </head>
 <body>
+<jsp:include page="base/header.jsp" />
 	<h1>Ver Detalhes de ${contato.nome}</h1>
 	
 	Nome: ${contato.nome}</br>
@@ -14,4 +16,5 @@
 	TeleFone: ${contato.telefone}</br>
 	<a href="/contatos/listar">Voltal ao Inicio</a>
 </body>
+<jsp:include page="base/footer.jsp" />
 </html>

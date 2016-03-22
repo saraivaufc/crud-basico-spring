@@ -7,22 +7,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Listar Contatos</title>
+<jsp:include page="base/header-estrutura.jsp" />
 </head>
 <body>
+<jsp:include page="base/header.jsp" />
 	<h2>Contatos</h2>
 	<form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST">
 		<input type="text" name="nome"/>
 		 <input type="submit" value="Buscar"/>
 		 <br>
 	</form:form>
-	<c:forEach items="${contatos}" var="contato">
-		<label>Nome: ${contato.nome }</label> | 
-		<label>Email: ${contato.email }</label> | 
-		<label>Telefone: ${contato.telefone }</label>
-		<a href="/contatos/detalhes/${contato.id }">detalhes</a>
-		<a href="/contatos/remover/${contato.id }">remover</a>
-		<a href="/contatos/editar/${contato.id }">editar</a><br>
-	</c:forEach>
-	<a href="/contatos/adicionar">Adicionar</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Telefone</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${contatos}" var="contato">
+			<tr>
+			<td>${contato.nome }</td>
+			<td>${contato.email }</td>
+			<td>${contato.telefone }</td>
+			<td>
+				<a href="/contatos/detalhes/${contato.id }"><i class="fa fa-table"></i></a>
+				<a href="/contatos/remover/${contato.id }"><i class="fa fa-remove"></i></a>
+				<a href="/contatos/editar/${contato.id }"><i class="fa fa-edit"></i></a>
+			</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
 </body>
+<jsp:include page="base/footer.jsp" />
 </html>
