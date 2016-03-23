@@ -11,12 +11,7 @@
 </head>
 <body>
 <jsp:include page="base/header.jsp" />
-	<h2>Contatos</h2>
-	<form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST">
-		<input type="text" name="nome"/>
-		 <input type="submit" value="Buscar"/>
-		 <br>
-	</form:form>
+	<h2 class="text-center">Contatos</h2>
 	<c:if test="${qtd_busca > 0 }">
 		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
 	</c:if>

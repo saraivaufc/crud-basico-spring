@@ -13,12 +13,12 @@
 <jsp:include page="base/header.jsp" />
 	<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">
-	        Novo Contato
+	        <h2 class="text-center">Novo Contato</h2>
 	        <c:set var="url" value="/adicionar"></c:set>
 	        <br />	        
 	    </c:when>
 	    <c:when test="${acao eq 'editar'}">
-	        Editar Contato
+	        <h2 class="text-center">Editar Contato</h2>
 	        <c:set var="url" value="/editar"></c:set>
 	        <br />
 	    </c:when>
@@ -26,19 +26,24 @@
 	
 	<form:form id="ContatoForm" commandName="contato" servletRelativeAction="${url}" method="POST">
 		<form:hidden path="id"/>
-		<label>Nome: </label>
-		<form:input type="text" path="nome"/><br>
-		<label>Email: </label>
-		<form:input type="text" path="email"/><br>
-		<label>Telefone: </label>
-		<form:input type="text" path="telefone"/><br>
-		
+		<div class="form-group">
+			<label for="nome">Nome: </label>
+			<form:input type="text" path="nome" cssClass="form-control"/><br>
+		</div>
+		<div class="form-group">
+			<label for="email">Email: </label>
+			<form:input type="text" path="email" cssClass="form-control" /><br>
+		</div>
+		<div class="form-group">
+			<label for="telefone">Telefone: </label>
+			<form:input type="text" path="telefone" cssClass="form-control" /><br>
+		</div>
 		<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">
-	        <input type="submit" value="Adicionar"/>	        
+	        <input type="submit" class="btn btn-primary" value="Adicionar"/>	        
 	    </c:when>
 	    <c:when test="${acao eq 'editar'}">
-	        <input type="submit" value="Editar"/>		
+	        <input type="submit" class="btn btn-primary" value="Editar"/>		
 	    </c:when>
 	</c:choose>
 	</form:form>
