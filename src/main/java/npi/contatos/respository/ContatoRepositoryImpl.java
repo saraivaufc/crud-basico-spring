@@ -53,7 +53,7 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 
 	@Override
 	public List<Contato> buscarPorNome(String nome) {
-		Query query = em.createQuery("from Contato where nome = :nome");
+		Query query = em.createQuery("from Contato where UPPER(nome) like '%' || UPPER(:nome) || '%'");
 		query.setParameter("nome", nome);
 		List<Contato> resultList = (List<Contato>) query.getResultList();
 		return resultList;

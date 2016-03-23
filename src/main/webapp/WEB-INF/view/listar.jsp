@@ -17,6 +17,9 @@
 		 <input type="submit" value="Buscar"/>
 		 <br>
 	</form:form>
+	<c:if test="${qtd_busca > 0 }">
+		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
+	</c:if>
 	<table class="table table-striped">
 		<thead>
 			<tr>

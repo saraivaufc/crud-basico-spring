@@ -79,6 +79,7 @@ public class ContatoController {
 	public String buscar(Model model,@RequestParam("nome") String nome) {
 		List<Contato> contatos = contatoService.buscarPorNome(nome);
 		model.addAttribute("contatos", contatos);
+		model.addAttribute("qtd_busca", contatos.size());
 		return "listar";
 	}
 	
