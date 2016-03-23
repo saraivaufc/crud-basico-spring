@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Gerenciador de Contatos</a>
+      <a class="navbar-brand"  href="/contatos/listar">Gerenciador de Contatos</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,3 +35,6 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+<div class="page-content container-fluid">

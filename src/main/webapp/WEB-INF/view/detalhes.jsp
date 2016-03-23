@@ -9,12 +9,18 @@
 </head>
 <body>
 <jsp:include page="base/header.jsp" />
+<ol class="breadcrumb">
+  <li><a href="/contatos/">Início</a></li>
+  <li class="active">${contato.nome}</li>
+</ol>
+
 	<h1>Ver Detalhes de ${contato.nome}</h1>
 	
 	Nome: ${contato.nome}</br>
 	Email: ${contato.email}</br>
 	TeleFone: ${contato.telefone}</br>
+	Endereço: ${contato.endereco}</br>
 	<a href="/contatos/listar">Voltal ao Inicio</a>
-</body>
 <jsp:include page="base/footer.jsp" />
+</body>
 </html>

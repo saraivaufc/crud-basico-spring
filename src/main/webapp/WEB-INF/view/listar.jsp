@@ -11,8 +11,14 @@
 </head>
 <body>
 <jsp:include page="base/header.jsp" />
+
+<ol class="breadcrumb">
+  <li><a href="/contatos/">Início</a></li>
+</ol>
+
+
 	<h2 class="text-center">Contatos</h2>
-	<c:if test="${qtd_busca > 0 }">
+	<c:if test="${qtd_busca >= 0 }">
 		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
 	</c:if>
 	<table class="table table-striped">
@@ -21,6 +27,7 @@
 				<th>Nome</th>
 				<th>Email</th>
 				<th>Telefone</th>
+				<th>Endereço</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -30,6 +37,7 @@
 			<td>${contato.nome }</td>
 			<td>${contato.email }</td>
 			<td>${contato.telefone }</td>
+			<td>${contato.endereco }</td>
 			<td>
 				<a href="/contatos/detalhes/${contato.id }"><i class="fa fa-table"></i></a>
 				<a href="/contatos/remover/${contato.id }"><i class="fa fa-remove"></i></a>
@@ -39,6 +47,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
-</body>
+
 <jsp:include page="base/footer.jsp" />
+</body>
 </html>

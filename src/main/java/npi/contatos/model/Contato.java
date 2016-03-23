@@ -14,6 +14,7 @@ public class Contato {
 	private String nome;
 	private String telefone;
 	private String email;
+	private String endereco;
 
 	public Integer getId() {
 		return id;
@@ -43,6 +44,14 @@ public class Contato {
 		return email;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -51,5 +60,7 @@ public class Contato {
 	public String toString() {
 		return this.getId() + " - " + this.getNome() + " - " + this.getEmail() + " - " + this.getTelefone(); 
 	}
+
+	
 	
 }

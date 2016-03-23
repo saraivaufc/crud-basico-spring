@@ -11,6 +11,20 @@
 </head>
 <body>
 <jsp:include page="base/header.jsp" />
+
+
+<ol class="breadcrumb">
+  <li><a href="/contatos/">Início</a></li>
+  <c:choose>
+	    <c:when test="${acao eq 'adicionar'}">
+	        <li class="active">Novo Contato</li>	        
+	    </c:when>
+	    <c:when test="${acao eq 'editar'}">
+	        <li class="active">Editar Contato</li>
+	    </c:when>
+	</c:choose>
+</ol>
+
 	<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">
 	        <h2 class="text-center">Novo Contato</h2>
@@ -27,26 +41,37 @@
 	<form:form id="ContatoForm" commandName="contato" servletRelativeAction="${url}" method="POST">
 		<form:hidden path="id"/>
 		<div class="form-group">
-			<label for="nome">Nome: </label>
+			<label for="nome">Nome *: </label>
 			<form:input type="text" path="nome" cssClass="form-control"/><br>
 		</div>
 		<div class="form-group">
-			<label for="email">Email: </label>
+			<label for="email">Email *: </label>
 			<form:input type="text" path="email" cssClass="form-control" /><br>
 		</div>
 		<div class="form-group">
-			<label for="telefone">Telefone: </label>
+			<label for="telefone">Telefone *: </label>
 			<form:input type="text" path="telefone" cssClass="form-control" /><br>
+		</div>
+		<div class="form-group">
+			<label for="endereco">Endereço *: </label>
+			<form:input type="text" path="endereco" cssClass="form-control" /><br>
 		</div>
 		<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">
-	        <input type="submit" class="btn btn-primary" value="Adicionar"/>	        
+	        <button type="submit" class="btn btn-primary">
+	        	<i class="fa fa-plus"></i>
+	        	Adicionar
+	        </button>	        
 	    </c:when>
 	    <c:when test="${acao eq 'editar'}">
-	        <input type="submit" class="btn btn-primary" value="Editar"/>		
+	        <button type="submit" class="btn btn-primary">
+	        	<i class="fa fa-edit"></i>
+	        	Editar
+	        </button>
 	    </c:when>
 	</c:choose>
 	</form:form>
-</body>
+
 <jsp:include page="base/footer.jsp" />
+</body>
 </html>
