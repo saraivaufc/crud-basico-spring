@@ -16,5 +16,5 @@ public interface ContatoService {
 
 	void atualizar(Contato contato);
 	
-	Contato buscar(String nome);
+	List<Contato> buscarPorNome(String nome);
 }

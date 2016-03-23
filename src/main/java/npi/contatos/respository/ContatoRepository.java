@@ -12,7 +12,7 @@ public interface ContatoRepository {
 	
 	Contato findById(Integer id);
 	
-	Contato buscar(String nome);
+	List<Contato> buscarPorNome(String nome);
 	
 	void remover(Contato contato);
 	

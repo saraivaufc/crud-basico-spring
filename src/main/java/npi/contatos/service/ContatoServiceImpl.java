@@ -43,9 +43,9 @@ public class ContatoServiceImpl implements ContatoService {
 	}
 
 	@Override
-	public Contato buscar(String nome) {
-		Contato contato = contatoRepository.buscar(nome);
-		return contato;
+	public List<Contato> buscarPorNome(String nome) {
+		List<Contato> contatos = contatoRepository.buscarPorNome(nome);
+		return contatos;
 	}
 
 }

@@ -52,12 +52,11 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 	}
 
 	@Override
-	public Contato buscar(String nome) {
+	public List<Contato> buscarPorNome(String nome) {
 		Query query = em.createQuery("from Contato where nome = :nome");
 		query.setParameter("nome", nome);
-		query.setMaxResults(1);
-		Contato contato= (Contato) query.getSingleResult();
-		return contato;
+		List<Contato> resultList = (List<Contato>) query.getResultList();
+		return resultList;
 	}
 
 }

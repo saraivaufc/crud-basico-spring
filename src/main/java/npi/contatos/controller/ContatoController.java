@@ -1,5 +1,7 @@
 package npi.contatos.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import npi.contatos.model.Contato;
@@ -75,9 +77,9 @@ public class ContatoController {
 	
 	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
 	public String buscar(Model model,@RequestParam("nome") String nome) {
-		Contato contato = contatoService.buscar(nome);
-		model.addAttribute("contato", contato);
-		return "detalhes";
+		List<Contato> contatos = contatoService.buscarPorNome(nome);
+		model.addAttribute("contatos", contatos);
+		return "listar";
 	}
 	
 	
