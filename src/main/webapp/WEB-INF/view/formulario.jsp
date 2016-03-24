@@ -38,7 +38,7 @@
 	    </c:when>
 	</c:choose>
 	
-	<form:form id="ContatoForm" commandName="contato" servletRelativeAction="${url}" method="POST">
+	<form:form id="ContatoForm" commandName="contato" servletRelativeAction="${url}" enctype="multipart/form-data"  method="POST">
 		<form:hidden path="id"/>
 		<div class="form-group">
 			<label for="nome">Nome *: </label>
@@ -46,15 +46,19 @@
 		</div>
 		<div class="form-group">
 			<label for="email">Email *: </label>
-			<form:input type="text" path="email" cssClass="form-control" /><br>
+			<form:input type="text" path="email" cssClass="form-control" />
 		</div>
 		<div class="form-group">
 			<label for="telefone">Telefone *: </label>
-			<form:input type="text" path="telefone" cssClass="form-control" /><br>
+			<form:input type="text" path="telefone" cssClass="form-control" />
 		</div>
 		<div class="form-group">
 			<label for="endereco">Endereço *: </label>
-			<form:input type="text" path="endereco" cssClass="form-control" /><br>
+			<form:input type="text" path="endereco" cssClass="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="imagem">Imagem *: </label>
+			<input id="imagem" type="file" name="imagem" />
 		</div>
 		<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">

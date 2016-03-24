@@ -36,5 +36,6 @@
 	<!-- define o mapeamento dos recursos, como css, js, imagens, etc -->
 	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/media/**" location="/media/" />
 
 </beans>

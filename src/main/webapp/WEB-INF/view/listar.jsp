@@ -21,6 +21,7 @@
 	<c:if test="${qtd_busca >= 0 }">
 		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
 	</c:if>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -28,6 +29,7 @@
 				<th>Email</th>
 				<th>Telefone</th>
 				<th>Endereço</th>
+				<th>Imagem</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -38,6 +40,7 @@
 			<td>${contato.email }</td>
 			<td>${contato.telefone }</td>
 			<td>${contato.endereco }</td>
+			<td>${contato.relativePathImagem }</td>
 			<td>
 				<a href="/contatos/detalhes/${contato.id }"><i class="fa fa-table"></i></a>
 				<a href="/contatos/remover/${contato.id }"><i class="fa fa-remove"></i></a>

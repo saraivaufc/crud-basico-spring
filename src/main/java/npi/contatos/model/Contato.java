@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Contato {
@@ -15,7 +18,12 @@ public class Contato {
 	private String telefone;
 	private String email;
 	private String endereco;
-
+	
+	@Transient
+	private MultipartFile imagem;
+	private String absolutePathImagem;
+	private String relativePathImagem;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -61,6 +69,30 @@ public class Contato {
 		return this.getId() + " - " + this.getNome() + " - " + this.getEmail() + " - " + this.getTelefone(); 
 	}
 
+	public MultipartFile getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(MultipartFile imagem) {
+		this.imagem = imagem;
+	}
+
+
+	public String getRelativePathImagem() {
+		return relativePathImagem;
+	}
+
+	public void setRelativePathImagem(String relativePathImagem) {
+		this.relativePathImagem = relativePathImagem;
+	}
+
+	public String getAbsolutePathImagem() {
+		return absolutePathImagem;
+	}
+
+	public void setAbsolutePathImagem(String absolutePathImagem) {
+		this.absolutePathImagem = absolutePathImagem;
+	}
 	
 	
 }

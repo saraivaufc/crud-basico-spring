@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<div class="container">
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,18 +26,15 @@
       </ul>
       
       <div class="col-sm-3 col-md-3"> 	
-      <form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST" cssClass="navbar-form">
-		 <div class="input-group">
-			<input type="text" class="form-control" placeholder="Buscar..." name="nome"/>
-			<div class="input-group-btn">
-				<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+	      <form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST" cssClass="navbar-form">
+			 <div class="input-group">
+				<input type="text" class="form-control" placeholder="Buscar..." name="nome" required/>
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+				</div>
 			</div>
-		</div>
-	  </form:form>
+		  </form:form>
 	 </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-<div class="page-content container-fluid">

@@ -2,6 +2,8 @@ package npi.contatos.service;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import npi.contatos.model.Contato;
 
 public interface ContatoService {
@@ -17,4 +19,6 @@ public interface ContatoService {
 	void atualizar(Contato contato);
 	
 	List<Contato> buscarPorNome(String nome);
+	
+	boolean salvarImagem(ServletContext context, Contato contato);
 }

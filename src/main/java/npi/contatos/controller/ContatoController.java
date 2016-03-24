@@ -1,12 +1,13 @@
 package npi.contatos.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 
-import npi.contatos.model.Contato;
-import npi.contatos.service.ContatoService;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,12 +15,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import npi.contatos.model.Contato;
+import npi.contatos.service.ContatoService;
+
 
 @Controller
 public class ContatoController {
 	
 	@Inject
 	private ContatoService contatoService;
+	
+	@Autowired
+	private ServletContext context;
 	
 	@RequestMapping(value = "/")
 	public String index() {
@@ -48,12 +57,16 @@ public class ContatoController {
 		return "formulario";
 	}
 	
+
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-	public String adicionar(@ModelAttribute("contato") Contato contato) {
+	public String adicionar(
+			@ModelAttribute("contato") Contato contato){
 		contatoService.salvar(contato);
+		contatoService.salvarImagem(context, contato);
 		return "redirect:/listar";
 	}
 	
+
 	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
 	public String editarForm(Model model, @PathVariable("id") Integer id) {
 		Contato contato = contatoService.findId(id);
