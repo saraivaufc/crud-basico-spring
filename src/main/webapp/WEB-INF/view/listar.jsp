@@ -25,64 +25,43 @@
 <div class="bootcards-list">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			  <form>
-					<div class="row">
+			<form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST" >
+				 <div class="row">
 					  <div class="col-xs-9">
-					    <div class="form-group">
-					      <input type="text" class="form-control" placeholder="Buscar contatos...">
+					  <div class="form-group">
+					  	  <input type="text" class="form-control" placeholder="Buscar contatos..." name="nome" required/>
 					      <i class="fa fa-search"></i>
 					    </div>
 					  </div>
 					  <div class="col-xs-3">
-					    <a class="btn btn-primary btn-block" href="/contatos/adicionar/">
-					      <i class="fa fa-plus"></i>
-					      Novo Contato
-					    </a>
+						  <a class="btn btn-primary btn-block" href="/contatos/adicionar/">
+					      	<i class="fa fa-plus"></i>
+					      	Novo Contato
+					      </a>
 					  </div>
-					</div>
-			</form>
+				</div>
+			  </form:form>
 			
 			<div class="list-group">
 			<c:forEach items="${contatos}" var="contato">
-				<a class="list-group-item" href="#">
-					<img class="img-rounded pull-left" src="/contatos/${contato.relativePathImagem }" width="50px" height="50px"/>
-					<h4 class="list-group-item-heading">${contato.nome }</h4>
-					<p class="list-group-item-text">${contato.telefone }</p>
+				<a class="list-group-item" href="/contatos/detalhes/${contato.id }">
+				    <div class="row">
+					  <div class="col-sm-6">
+							<img class="img-rounded pull-left" src="/contatos/${contato.relativePathImagem }" width="50px" height="50px"/>
+							<h4 class="list-group-item-heading">${contato.nome }</h4>
+							<p class="list-group-item-text">${contato.telefone }</p>
+			          </div>
+			          <div class="col-sm-6">
+			            <p class="list-group-item-text">${contato.email }</p>
+			            <p class="list-group-item-text">${contato.endereco }</p>
+			          </div>
+					</div>
 				</a>
 			</c:forEach>
 		    </div>
 		</div>
 	</div>
 </div>
-
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Email</th>
-				<th>Telefone</th>
-				<th>Endereço</th>
-				<th>Imagem</th>
-				<th>Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach items="${contatos}" var="contato">
-			<tr>
-			<td>${contato.nome }</td>
-			<td>${contato.email }</td>
-			<td>${contato.telefone }</td>
-			<td>${contato.endereco }</td>
-			<td>${contato.relativePathImagem }</td>
-			<td>
-				<a href="/contatos/detalhes/${contato.id }"><i class="fa fa-table"></i></a>
-				<a href="/contatos/remover/${contato.id }"><i class="fa fa-remove"></i></a>
-				<a href="/contatos/editar/${contato.id }"><i class="fa fa-edit"></i></a>
-			</td>
-			</tr>
-		</c:forEach>
-		</tbody>
-	</table>
 
 <jsp:include page="base/footer.jsp" />
 </body>

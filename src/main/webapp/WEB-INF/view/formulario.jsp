@@ -42,7 +42,7 @@
 		<form:hidden path="id"/>
 		<div class="form-group">
 			<label for="nome">Nome *: </label>
-			<form:input type="text" path="nome" cssClass="form-control"/><br>
+			<form:input type="text" path="nome" cssClass="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="email">Email *: </label>

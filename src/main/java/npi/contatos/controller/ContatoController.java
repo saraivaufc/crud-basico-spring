@@ -78,6 +78,7 @@ public class ContatoController {
 	@RequestMapping(value = "/editar", method = RequestMethod.POST)
 	public String editar(@ModelAttribute("contato") Contato contato) {
 		contatoService.atualizar(contato);
+		contatoService.salvarImagem(context, contato);
 		return "redirect:/listar";
 	}
 	

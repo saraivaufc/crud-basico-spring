@@ -14,13 +14,56 @@
   <li class="active">${contato.nome}</li>
 </ol>
 
-	<h1>Ver Detalhes de ${contato.nome}</h1>
-	
-	Nome: ${contato.nome}</br>
-	Email: ${contato.email}</br>
-	TeleFone: ${contato.telefone}</br>
-	Endereço: ${contato.endereco}</br>
-	<a href="/contatos/listar">Voltal ao Inicio</a>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h1 class="panel-title pull-left">${contato.nome}</h1>
+    	<div class="btn-group pull-right">
+		      <a class="btn btn-primary" href="/contatos/editar/${contato.id}/">
+		        <i class="fa fa-pencil"></i>
+		        Editar
+		      </a>
+		      <a class="btn btn-danger" href="/contatos/remover/${contato.id}/">
+		        <i class="fa fa-pencil"></i>
+		        Excluir
+		      </a>
+		      
+      	</div>
+    </div>
+    <div class="container-fluid">
+    <div class="row">
+	    <div class="col-md-3">
+	    	<div class="text-center">
+		    	<img class="img-responsive img-rounded" src="/contatos/${contato.relativePathImagem}"/>
+		    </div>
+	    </div>
+	    <div class="col-md-9">
+		    <div class="row">
+		    	<div class="list-group">
+			      <div class="list-group-item">
+			        <p class="list-group-item-text">Nome</p>
+			        <h4 class="list-group-item-heading">${contato.nome}</h4>
+			      </div>
+			      <div class="list-group-item">
+			        <p class="list-group-item-text">Telefone</p>
+			        <h4 class="list-group-item-heading">${contato.telefone}</h4>
+			      </div>
+			      <div class="list-group-item">
+			        <p class="list-group-item-text">Email</p>
+			        <h4 class="list-group-item-heading">${contato.email}</h4>
+			      </div>
+			      <div class="list-group-item">
+			        <p class="list-group-item-text">Endereço</p>
+			        <h4 class="list-group-item-heading">${contato.endereco}</h4>
+			      </div>
+			    </div>
+			</div>
+	    </div>
+	 </div>
+	 </div>
+  <div class="panel-footer">
+    <small>Built with Bootcards - Base Card</small>
+  </div>
+</div>
 <jsp:include page="base/footer.jsp" />
 </body>
 </html>

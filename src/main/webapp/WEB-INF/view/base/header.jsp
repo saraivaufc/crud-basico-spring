@@ -23,17 +23,6 @@
       <ul class="nav navbar-nav">
         <li><a href="/contatos/listar">Início <span class="sr-only">(current)</span></a></li>
       </ul>
-      
-      <div class="col-sm-3 col-md-3"> 	
-	      <form:form id="BuscarForm" commandName="buscar" servletRelativeAction="/buscar" method="POST" cssClass="navbar-form">
-			 <div class="input-group">
-				<input type="text" class="form-control" placeholder="Buscar..." name="nome" required/>
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-				</div>
-			</div>
-		  </form:form>
-	 </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
