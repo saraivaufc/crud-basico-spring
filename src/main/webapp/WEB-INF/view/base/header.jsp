@@ -22,7 +22,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/contatos/listar">Início <span class="sr-only">(current)</span></a></li>
-        <li><a href="/contatos/adicionar/">Novo Contato</a></li>
       </ul>
       
       <div class="col-sm-3 col-md-3"> 	

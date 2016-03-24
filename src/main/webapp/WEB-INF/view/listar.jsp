@@ -21,6 +21,39 @@
 	<c:if test="${qtd_busca >= 0 }">
 		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
 	</c:if>
+	
+<div class="bootcards-list">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			  <form>
+					<div class="row">
+					  <div class="col-xs-9">
+					    <div class="form-group">
+					      <input type="text" class="form-control" placeholder="Buscar contatos...">
+					      <i class="fa fa-search"></i>
+					    </div>
+					  </div>
+					  <div class="col-xs-3">
+					    <a class="btn btn-primary btn-block" href="/contatos/adicionar/">
+					      <i class="fa fa-plus"></i>
+					      Novo Contato
+					    </a>
+					  </div>
+					</div>
+			</form>
+			
+			<div class="list-group">
+			<c:forEach items="${contatos}" var="contato">
+				<a class="list-group-item" href="#">
+					<img class="img-rounded pull-left" src="/contatos/${contato.relativePathImagem }" width="50px" height="50px"/>
+					<h4 class="list-group-item-heading">${contato.nome }</h4>
+					<p class="list-group-item-text">${contato.telefone }</p>
+				</a>
+			</c:forEach>
+		    </div>
+		</div>
+	</div>
+</div>
 
 	<table class="table table-striped">
 		<thead>
