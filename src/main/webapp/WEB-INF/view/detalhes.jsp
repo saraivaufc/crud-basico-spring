@@ -71,25 +71,25 @@
 			</div>
 	    </div>
 	    <div class="col-md-3">
-		    <div class="row">
-		    
-		    <form:form id="MensagemForm" commandName="mensagem" servletRelativeAction="${url}" enctype="multipart/form-data"  method="POST">
-		    	<div class="form-group">
+	    	</br>
+		    <form:form id="MensagemForm" commandName="mensagem" servletRelativeAction="/mensagens/adicionar/contato=${contato.id}"  method="POST">    	
+		   		<div class="form-group">
 					<label for="assunto">Assunto *: </label>
 					<form:input type="text" path="assunto" cssClass="form-control"/>
+					<form:errors path="assunto" />
 				</div>
 				<div class="form-group">
 					<label for="messagem">Mensagem *: </label>
 					<form:textarea path="mensagem" cssClass="form-control"/>
+					<form:errors path="mensagem" />
 				</div>
-		    	<div class="btn-group btn-group-justified">
-				  <a href="#" class="btn btn-primary">
+		    	<div class="btn-group pull-right">
+				  <button type="submit" class="btn btn-primary">
 				  	<i class="fa fa-send"></i>
 				  	Enviar Email
-				  </a>
+				  </button>
 				</div>
 		    </form:form>
-		    </div>
 	    </div>
 	 </div>
 	 </div>

@@ -89,10 +89,6 @@ public class ContatoServiceImpl implements ContatoService {
         return false;
 	}
 
-	@Override
-	public boolean enviarEmail(Usuario usuario, Contato contato, String mensagem) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 }

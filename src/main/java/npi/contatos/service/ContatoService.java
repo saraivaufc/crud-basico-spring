@@ -2,11 +2,12 @@ package npi.contatos.service;
 
 import java.util.List;
 
+import javax.inject.Named;
 import javax.servlet.ServletContext;
 
 import npi.contatos.model.Contato;
-import npi.contatos.model.Usuario;
 
+@Named
 public interface ContatoService {
 	
 	List<Contato> findAll();
@@ -23,5 +24,4 @@ public interface ContatoService {
 	
 	boolean salvarImagem(ServletContext context, Contato contato);
 	
-	boolean enviarEmail(Usuario usuario, Contato contato, String mensagem);
 }

@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,13 +13,11 @@ public class Mensagem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario remetente;
+	@OneToOne 
+	private Usuario remetente;
 	
-	@ManyToOne
-    @JoinColumn(name = "contato_id")
-    private Contato destinatario;
+	@OneToOne 
+	private Contato destinatario;
 	
 	@NotNull
 	private String assunto;
@@ -35,7 +32,8 @@ public class Mensagem {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
+	
 	public Usuario getRemetente() {
 		return remetente;
 	}
@@ -43,7 +41,7 @@ public class Mensagem {
 	public void setRemetente(Usuario remetente) {
 		this.remetente = remetente;
 	}
-
+	
 	public Contato getDestinatario() {
 		return destinatario;
 	}
@@ -66,6 +64,16 @@ public class Mensagem {
 
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
+	}
+	
+	@Override
+	public String toString() {
+		String output = "\nRemetente:" + getRemetente() +
+						"\nDestinatario:"+ getDestinatario() + 
+						"\nAssunto:" + getAssunto() + 
+						"\nMensagem:" + getMensagem() + 
+						"\nID:" + getId();
+		return output;
 	}
 	
 	
