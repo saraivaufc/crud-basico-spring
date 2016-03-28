@@ -28,7 +28,7 @@ public class MensagemController {
 	@RequestMapping(value = "/mensagens/listar")
 	public String listar(Model model) {
 		model.addAttribute("mensagens", mensagemService.findAll());
-		return "listar";
+		return "mensagem/listar";
 	}
 
 	@RequestMapping(value = "/mensagens/adicionar/contato={id}", method = RequestMethod.POST)

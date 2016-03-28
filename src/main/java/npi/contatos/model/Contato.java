@@ -69,11 +69,6 @@ public class Contato {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return this.getId() + " - " + this.getNome() + " - " + this.getEmail() + " - " + this.getTelefone(); 
-	}
-
 	public MultipartFile getImagem() {
 		return imagem;
 	}
@@ -99,5 +94,8 @@ public class Contato {
 		this.absolutePathImagem = absolutePathImagem;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.getNome() + " - " + this.getEmail(); 
+	}
 }

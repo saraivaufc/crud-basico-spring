@@ -35,7 +35,6 @@
     <div class="container-fluid">
     <div class="row">
 	    <div class="col-md-3">
-	    	<div class="row">
 	    	<div class="text-center">
 		    	<img class="img-responsive img-rounded" 
 		    	<c:if test="${contato.relativePathImagem != null }">
@@ -44,8 +43,8 @@
 				<c:if test="${contato.relativePathImagem == null }">
 					src="<c:url value="/resources/img/icons/contact.png" />"
 				</c:if>
+				width="100%"
 		    	/>
-		    </div>
 		    </div>
 	    </div>
 	    <div class="col-md-6">
