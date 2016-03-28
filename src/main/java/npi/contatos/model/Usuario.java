@@ -16,8 +16,8 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String login;
 	private String habilitado;
+	private String login;
 	private String password;
 	
 	@ManyToMany
@@ -32,14 +32,6 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
 	public String getHabilitado() {
 		return habilitado;
 	}
@@ -48,6 +40,14 @@ public class Usuario {
 		this.habilitado = enabled;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
 	public String getPassword() {
 		return password;
 	}
@@ -63,5 +63,6 @@ public class Usuario {
 	public void setPapeis(List<Papel> papeis) {
 		this.papeis = papeis;
 	}
+
 
 }

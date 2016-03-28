@@ -11,6 +11,7 @@ import javax.servlet.ServletContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import npi.contatos.model.Contato;
+import npi.contatos.model.Usuario;
 import npi.contatos.respository.ContatoRepository;
 
 @Named
@@ -56,7 +57,10 @@ public class ContatoServiceImpl implements ContatoService {
 	@Override
 	public boolean salvarImagem(ServletContext context, Contato contato) {
 		MultipartFile imagem = contato.getImagem();
-		
+		if(imagem.isEmpty()){
+			System.out.println("Nenhuma imagem encontrada!!!");
+			return false;
+		}
 		String uploadsDir = "/media/";
 		String absolutePath = (new File( context.getRealPath("/"))).getAbsolutePath().toString();
         String realPathtoUploads = absolutePath + uploadsDir;
@@ -83,6 +87,12 @@ public class ContatoServiceImpl implements ContatoService {
 			e.printStackTrace();
 		}
         return false;
+	}
+
+	@Override
+	public boolean enviarEmail(Usuario usuario, Contato contato, String mensagem) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

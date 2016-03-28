@@ -31,6 +31,9 @@
 		<property name="maxUploadSize" value="5000000" />
 		<property name="maxInMemorySize" value="5000000" />
 	</bean>
+	
+	
+	 
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
 
 </beans>

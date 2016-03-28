@@ -53,12 +53,12 @@
 			<form:input type="text" path="telefone" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="endereco">Endereço *: </label>
+			<label for="endereco">Endereço: </label>
 			<form:input type="text" path="endereco" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="imagem">Imagem *: </label>
-			<input id="imagem" type="file" name="imagem" />
+			<label for="imagem">Imagem: </label>
+			<form:input type="file" path="imagem" />
 		</div>
 		<c:choose>
 	    <c:when test="${acao eq 'adicionar'}">

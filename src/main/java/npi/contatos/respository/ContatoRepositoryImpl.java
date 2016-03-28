@@ -23,7 +23,7 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 
 	@Override
 	public List<Contato> findAll() {
-		Query query = em.createQuery("from Contato");
+		Query query = em.createQuery("from Contato order by(nome)");
 		return query.getResultList();
 	}
 

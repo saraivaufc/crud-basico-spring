@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import npi.contatos.model.Contato;
+import npi.contatos.model.Mensagem;
 import npi.contatos.service.ContatoService;
 
 
@@ -45,6 +47,7 @@ public class ContatoController {
 	@RequestMapping(value = "/detalhes/{id}", method = RequestMethod.GET)
 	public String detalhes(Model model, @PathVariable("id") Integer id) {
 		Contato contato = contatoService.findId(id);
+		model.addAttribute("mensagem", new Mensagem());
 		model.addAttribute("contato", contato);
 		return "detalhes";
 	}
@@ -59,8 +62,7 @@ public class ContatoController {
 	
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-	public String adicionar(
-			@ModelAttribute("contato") Contato contato){
+	public String adicionar(@Valid Contato contato){
 		contatoService.salvar(contato);
 		contatoService.salvarImagem(context, contato);
 		return "redirect:/listar";

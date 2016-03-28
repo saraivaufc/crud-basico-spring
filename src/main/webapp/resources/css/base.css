@@ -4,3 +4,17 @@
     padding-left: 1px;
     padding-right: 1px;
 }
+
+#FormEmail textarea{
+	width: 100%;
+	height: 250px;
+}
+
+.fill{
+	width: 100%;
+}
+
+.fill .list-group, .fill .list-group-item{
+	margin-left: 0px;
+	margin-bottom: 0px;
+}

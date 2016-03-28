@@ -19,7 +19,7 @@
 
 	<h2 class="text-center">Contatos</h2>
 	<c:if test="${qtd_busca >= 0 }">
-		<h3>Foi encontrado ${qtd_busca} resultados para a busca!</h3>
+		<h3>Foram encontrado ${qtd_busca} resultados para a busca!</h3>
 	</c:if>
 	
 <div class="bootcards-list">
@@ -47,7 +47,14 @@
 				<a class="list-group-item" href="/contatos/detalhes/${contato.id }">
 				    <div class="row">
 					  <div class="col-sm-6">
-							<img class="img-rounded pull-left" src="/contatos/${contato.relativePathImagem }" width="50px" height="50px"/>
+					  		<img class="img-rounded pull-left" 
+					  		<c:if test="${contato.relativePathImagem != null }">
+					  			src="<c:url value="${contato.relativePathImagem }" />"
+					  		</c:if>
+							<c:if test="${contato.relativePathImagem == null }">
+								src="<c:url value="/resources/img/icons/contact.png" />"
+							</c:if>
+							width="50px" height="50px"/>
 							<h4 class="list-group-item-heading">${contato.nome }</h4>
 							<p class="list-group-item-text">${contato.telefone }</p>
 			          </div>

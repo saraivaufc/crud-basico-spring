@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,13 +35,22 @@
     <div class="container-fluid">
     <div class="row">
 	    <div class="col-md-3">
+	    	<div class="row">
 	    	<div class="text-center">
-		    	<img class="img-responsive img-rounded" src="/contatos/${contato.relativePathImagem}"/>
+		    	<img class="img-responsive img-rounded" 
+		    	<c:if test="${contato.relativePathImagem != null }">
+		  			src="<c:url value="${contato.relativePathImagem }" />"
+		  		</c:if>
+				<c:if test="${contato.relativePathImagem == null }">
+					src="<c:url value="/resources/img/icons/contact.png" />"
+				</c:if>
+		    	/>
+		    </div>
 		    </div>
 	    </div>
-	    <div class="col-md-9">
+	    <div class="col-md-6">
 		    <div class="row">
-		    	<div class="list-group">
+		    	<div class="list-group fill">
 			      <div class="list-group-item">
 			        <p class="list-group-item-text">Nome</p>
 			        <h4 class="list-group-item-heading">${contato.nome}</h4>
@@ -57,6 +69,27 @@
 			      </div>
 			    </div>
 			</div>
+	    </div>
+	    <div class="col-md-3">
+		    <div class="row">
+		    
+		    <form:form id="MensagemForm" commandName="mensagem" servletRelativeAction="${url}" enctype="multipart/form-data"  method="POST">
+		    	<div class="form-group">
+					<label for="assunto">Assunto *: </label>
+					<form:input type="text" path="assunto" cssClass="form-control"/>
+				</div>
+				<div class="form-group">
+					<label for="messagem">Mensagem *: </label>
+					<form:textarea path="mensagem" cssClass="form-control"/>
+				</div>
+		    	<div class="btn-group btn-group-justified">
+				  <a href="#" class="btn btn-primary">
+				  	<i class="fa fa-send"></i>
+				  	Enviar Email
+				  </a>
+				</div>
+		    </form:form>
+		    </div>
 	    </div>
 	 </div>
 	 </div>
