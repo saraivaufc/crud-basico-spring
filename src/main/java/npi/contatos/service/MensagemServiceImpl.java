@@ -60,7 +60,6 @@ public class MensagemServiceImpl implements MensagemService {
 	@Override
 	public void enviarEmail(Mensagem mensagem) {
 		SimpleMailMessage msn = new SimpleMailMessage();	
-		msn.setFrom("saraiva.ufc@gmail.com");
 		msn.setTo(mensagem.getDestinatario().getEmail());
 		msn.setSubject(mensagem.getAssunto());
 		msn.setText(mensagem.getMensagem());

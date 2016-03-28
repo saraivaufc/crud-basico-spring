@@ -5,3 +5,7 @@ bootcards.init( {
   disableRubberBanding : true,
   disableBreakoutSelector : 'a.no-break-out'
 });
+
+$(".boxer").boxer({
+    mobile: true
+});

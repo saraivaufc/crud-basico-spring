@@ -7,6 +7,8 @@
 <link href="<c:url value="/resources/frameworks/bootstrap/theme/bootstrap.min.css" />" rel="stylesheet">
 
 
+<!-- Jquery Boxer -->
+<link href="<c:url value="/resources/frameworks/boxer/jquery.fs.boxer.min.css" />" rel="stylesheet">
 
 <link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/base.css" />" rel="stylesheet">

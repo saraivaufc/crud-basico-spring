@@ -44,20 +44,21 @@
 			
 			<div class="list-group">
 			<c:forEach items="${contatos}" var="contato">
-				<a class="list-group-item" href="/contatos/detalhes/${contato.id }">
+				<a class="list-group-item" href="/contatos/detalhes/${contato.id }"> 
 				    <div class="row">
 					  <div class="col-sm-6">
-					  		<img class="img-rounded pull-left" 
-					  		<c:if test="${contato.relativePathImagem != null }">
-					  			src="<c:url value="${contato.relativePathImagem }" />"
-					  		</c:if>
-							<c:if test="${contato.relativePathImagem == null }">
-								src="<c:url value="/resources/img/icons/contact.png" />"
-							</c:if>
-							width="50px" height="50px"/>
+					  		<img class="img-rounded pull-left"  
+							  		<c:if test="${contato.relativePathImagem != null }">
+							  			src="<c:url value="${contato.relativePathImagem }" />"
+							  		</c:if>
+									<c:if test="${contato.relativePathImagem == null }">
+										src="<c:url value="/resources/img/icons/contact.png" />"
+									</c:if>
+								width="100px" height="100px"/>
 							<h4 class="list-group-item-heading">${contato.nome }</h4>
 							<p class="list-group-item-text">${contato.telefone }</p>
 			          </div>
+			          
 			          <div class="col-sm-6">
 			            <p class="list-group-item-text">${contato.email }</p>
 			            <p class="list-group-item-text">${contato.endereco }</p>

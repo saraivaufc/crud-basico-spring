@@ -36,15 +36,24 @@
     <div class="row">
 	    <div class="col-md-3">
 	    	<div class="text-center">
-		    	<img class="img-responsive img-rounded" 
+		    	<a 
 		    	<c:if test="${contato.relativePathImagem != null }">
-		  			src="<c:url value="${contato.relativePathImagem }" />"
+		  			href="<c:url value="${contato.relativePathImagem }" />"
 		  		</c:if>
 				<c:if test="${contato.relativePathImagem == null }">
-					src="<c:url value="/resources/img/icons/contact.png" />"
+					href="<c:url value="/resources/img/icons/contact.png" />"
 				</c:if>
-				width="100%"
-		    	/>
+		    	class="boxer" title="${ contato.nome }" data-gallery="gallery">
+					<img class="img-responsive img-rounded" 
+			    	<c:if test="${contato.relativePathImagem != null }">
+			  			src="<c:url value="${contato.relativePathImagem }" />"
+			  		</c:if>
+					<c:if test="${contato.relativePathImagem == null }">
+						src="<c:url value="/resources/img/icons/contact.png" />"
+					</c:if>
+					width="100%"
+			    	/>
+			    </a>
 		    </div>
 	    </div>
 	    <div class="col-md-6">
