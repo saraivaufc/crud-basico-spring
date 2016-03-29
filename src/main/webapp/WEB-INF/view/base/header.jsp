@@ -24,6 +24,7 @@
         <li><a href="/contatos/listar">Início <span class="sr-only">(current)</span></a></li>
         <li><a href="/contatos/mensagens/listar">Emails Enviados<span class="sr-only">(current)</span></a></li>
       	<li><a href="/contatos/usuario/login">Entrar</a></li>
+      	<li><a href="/contatos/usuario/logout">Sair</a></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->

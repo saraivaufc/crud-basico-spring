@@ -34,8 +34,8 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/usuario/login", method = RequestMethod.GET)
 	public String login(@RequestParam(value = "erro", required = false) String erro, Model model, HttpSession secao) {
-		if(secao.getAttribute("usuario")){
-			
+		if(secao.getAttribute("usuario") != null){
+			return "redirect:/listar";
 		}
 		if (erro != null) {
 			model.addAttribute("erro", "Usuário e/ou senha inválidos!");
@@ -64,8 +64,10 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/usuario/logout", method = RequestMethod.GET)
-	public String logout() {
-		return "usuario/login";
+	public String logout(HttpSession secao) {
+		secao.invalidate();
+		System.out.println("Logout realizado com sucesso!!");
+		return "redirect:/usuario/login";
 	}
 	
 	@RequestMapping(value = "/usuario/registrar", method = RequestMethod.GET)
