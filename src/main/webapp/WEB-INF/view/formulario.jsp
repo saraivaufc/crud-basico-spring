@@ -42,15 +42,15 @@
 		<form:hidden path="id"/>
 		<div class="form-group">
 			<label for="nome">Nome *: </label>
-			<form:input type="text" path="nome" cssClass="form-control"/>
+			<form:input type="text" path="nome" cssClass="form-control" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="email">Email *: </label>
-			<form:input type="text" path="email" cssClass="form-control" />
+			<form:input type="text" path="email" cssClass="form-control" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="telefone">Telefone *: </label>
-			<form:input type="text" path="telefone" cssClass="form-control" />
+			<form:input type="text" path="telefone" cssClass="form-control" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="endereco">Endereço: </label>

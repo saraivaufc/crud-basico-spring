@@ -19,6 +19,7 @@
 		<property name="jndiName" value="java:comp/env/contatos" />
 	</bean>
 	
+	
 	<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="dev" />
 		<property name="dataSource" ref="contatos" />
