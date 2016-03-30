@@ -24,6 +24,7 @@ public class UsuarioController {
 	@Inject
 	private UsuarioServiceImpl usuarioService;
 	
+
 	
 	@RequestMapping("/usuario/autenticado")
 	public ModelAndView infoAutenticado(@ModelAttribute("usuario") Usuario usuario){
@@ -32,9 +33,10 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/usuario/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/loginForm", method = RequestMethod.GET)
 	public String login(@RequestParam(value = "erro", required = false) String erro, Model model, HttpSession secao) {
 		if(secao.getAttribute("usuario") != null){
+			System.out.println(secao.getAttribute("usuario").toString());
 			return "redirect:/listar";
 		}
 		if (erro != null) {
@@ -50,11 +52,11 @@ public class UsuarioController {
 		if(usuario != null){
 			System.out.println("Usuário autenticado com sucesso!!!");
 			sessao.setAttribute("usuario", usuario);
-			
+			return "redirect:/listar";
 		}else{
 			System.out.println("Falha na autenticação do usuário :(");
+			return "redirect:/";
 		}
-		return "usuario/login";
 	}
 
 	@RequestMapping(value = "/usuario/loginfailed", method = RequestMethod.GET)
@@ -63,14 +65,14 @@ public class UsuarioController {
 		return "usuario/login";
 	}
 
-	@RequestMapping(value = "/usuario/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/logout", method = {RequestMethod.POST,RequestMethod.GET})
 	public String logout(HttpSession secao) {
 		secao.invalidate();
 		System.out.println("Logout realizado com sucesso!!");
-		return "redirect:/usuario/login";
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/usuario/registrar", method = RequestMethod.GET)
+	@RequestMapping(value = "/usuario/registrarForm", method = RequestMethod.GET)
 	public String registrar(Model model) {
 	    model.addAttribute("usuario", new Usuario());
 	    return "usuario/registration";

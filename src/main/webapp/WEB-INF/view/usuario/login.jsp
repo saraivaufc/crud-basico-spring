@@ -18,7 +18,7 @@
 </ol>
 <div class="container-fluid">
 	<div class="row">
-		<h1 class="text-center">Entrar ou <a href="/contatos/usuario/registrar">Cadastrar</a></h1>
+		<h1 class="text-center">Entrar ou <a href="/contatos/usuario/registrarForm">Cadastrar</a></h1>
 		<div class="col-md-8 col-md-offset-2">
 		    <form:form id="UsuarioForm" modelAttribute="usuario" servletRelativeAction="/usuario/login" enctype="multipart/form-data"  method="POST">
 				<div class="form-group">

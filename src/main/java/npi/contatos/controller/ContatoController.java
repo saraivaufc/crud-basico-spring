@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,11 @@ public class ContatoController {
 	private ServletContext context;
 	
 	@RequestMapping(value = "/")
-	public String index() {
-		return "redirect:/listar";
+	public String index(HttpSession secao) {
+		if(secao.getAttribute("usuario") != null){
+			return "redirect:/listar";
+		}
+		return "index";
 	}
 	
 	

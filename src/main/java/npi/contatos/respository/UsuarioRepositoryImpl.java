@@ -65,7 +65,13 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 		query.setParameter("login", login);
 		query.setParameter("password", password);
 		query.setMaxResults(1);
-		return  (Usuario) query.getSingleResult();
+		Usuario usuario = null;
+		try{
+			usuario = (Usuario) query.getSingleResult();
+		}catch(Exception e){
+			System.out.println("Usuário não encontrado!!!");
+		}
+		return  usuario ;
 	}
 
 }

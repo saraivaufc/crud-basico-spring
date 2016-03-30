@@ -21,10 +21,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/contatos/listar">Início <span class="sr-only">(current)</span></a></li>
+        <li><a href="/contatos">Início <span class="sr-only">(current)</span></a></li>
         <li><a href="/contatos/mensagens/listar">Emails Enviados<span class="sr-only">(current)</span></a></li>
-      	<li><a href="/contatos/usuario/login">Entrar</a></li>
-      	<li><a href="/contatos/usuario/logout">Sair</a></li>
+      	<li><a href="/contatos/usuario/loginForm">Entrar</a></li>
+      	<li><a href='<c:url value="/usuario/logout"></c:url>'>Sair</a></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->
